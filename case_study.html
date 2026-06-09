@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI PM Portfolio — Hridyanshu Singhal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue:      #1A4FBF;
+    --blue-lt:   #EEF3FC;
+    --blue-mid:  #2563EB;
+    --red:       #A63030;
+    --red-lt:    #FAF0F0;
+    --ink:       #111111;
+    --mid:       #5A6A7E;
+    --rule:      #D1D9E6;
+    --offwhite:  #F7F9FC;
+    --white:     #ffffff;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #e8edf5;
+    color: var(--ink);
+    line-height: 1.5;
+    padding: 32px 16px;
+  }
+
+  .page {
+    background: var(--white);
+    max-width: 860px;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--blue);
+    padding: 24px 32px 20px;
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .header-headline {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.25;
+    max-width: 580px;
+  }
+  .header-byline {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .header-byline p {
+    color: rgba(255,255,255,0.75);
+    font-size: 11px;
+    line-height: 1.6;
+  }
+  .header-sub {
+    margin-top: 8px;
+    color: rgba(255,255,255,0.88);
+    font-size: 12.5px;
+    font-weight: 500;
+  }
+
+  /* ── PILLS ROW ── */
+  .pills-row {
+    padding: 14px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--white);
+  }
+  .pill {
+    background: var(--red-lt);
+    border: 1px solid var(--red);
+    color: var(--red);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  /* ── BODY ── */
+  .body {
+    padding: 0 32px 32px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-top: 24px;
+  }
+  .section-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--blue);
+    padding-bottom: 6px;
+    border-bottom: 1.5px solid var(--blue);
+    margin-bottom: 12px;
+  }
+  .section-label.red {
+    color: var(--red);
+    border-color: var(--red);
+  }
+
+  /* ── PROBLEM ── */
+  .problem-text {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .problem-text b { color: var(--ink); }
+
+  /* ── ROLE CARDS ── */
+  .role-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .role-card {
+    background: var(--offwhite);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 12px 14px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .role-card b {
+    display: block;
+    color: var(--blue);
+    font-size: 11.5px;
+    margin-bottom: 4px;
+  }
+
+  /* ── PIPELINE ── */
+  .pipeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    align-items: stretch;
+  }
+  .pipeline-step {
+    background: var(--blue);
+    border-radius: 4px;
+    padding: 10px 8px;
+    text-align: center;
+    position: relative;
+  }
+  .pipeline-step.outcome {
+    background: var(--red);
+  }
+  .pipeline-step .step-title {
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .pipeline-step .step-sub {
+    color: rgba(255,255,255,0.82);
+    font-size: 10px;
+    line-height: 1.4;
+  }
+  .pipeline-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mid);
+    font-size: 14px;
+  }
+
+  /* ── IMPACT TABLE ── */
+  .impact-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .impact-table thead tr {
+    background: var(--blue);
+  }
+  .impact-table thead th {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 11px;
+    padding: 9px 14px;
+    text-align: left;
+    letter-spacing: 0.04em;
+  }
+  .impact-table thead th:nth-child(2) { text-align: left; }
+  .impact-table tbody tr:nth-child(even) { background: var(--offwhite); }
+  .impact-table tbody tr:nth-child(odd)  { background: var(--white); }
+  .impact-table tbody td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: middle;
+    line-height: 1.4;
+  }
+  .impact-table .before {
+    color: var(--mid);
+    font-size: 12px;
+  }
+  .impact-table .after {
+    color: var(--red);
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+  .impact-table .metric {
+    color: var(--ink);
+    font-size: 12px;
+  }
+
+  /* ── BEYOND NUMBERS ── */
+  .beyond-text {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .beyond-text .highlight {
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  /* ── PM APPROACH ── */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .approach-card {
+    background: var(--blue-lt);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 14px;
+  }
+  .approach-card .dot {
+    width: 8px; height: 8px;
+    background: var(--blue);
+    border-radius: 50%;
+    margin-bottom: 8px;
+  }
+  .approach-card .title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .approach-card .desc {
+    font-size: 11.5px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid var(--rule);
+    margin-top: 28px;
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10.5px;
+    color: var(--mid);
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="header-headline">
+        Credit Underwriting Was Slow, Unreliable &amp; Analyst-Dependent.
+      </div>
+      <div class="header-byline">
+        <p>Hridyanshu Singhal</p>
+        <p>Founding PM · Voxar.ai</p>
+        <p>AI PM Portfolio · 2026</p>
+      </div>
+    </div>
+    <p class="header-sub">We automated it end-to-end with AI — 10,000+ CAM reports/month across 5 clients, 2–3 hrs → under 15 minutes.</p>
+  </div>
+
+  <!-- PILLS -->
+  <div class="pills-row">
+    <span class="pill">10,000+ reports / month</span>
+    <span class="pill">2–3 hrs → &lt;15 min</span>
+    <span class="pill">5 NBFC / SFB clients</span>
+    <span class="pill">~40% → 100% SOP compliance</span>
+    <span class="pill">2 new clients post-launch</span>
+    <span class="pill">100+ prompts per report</span>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- THE PROBLEM -->
+    <div class="section">
+      <div class="section-label">The Problem</div>
+      <p class="problem-text">
+        CAM (Credit Appraisal Memo) reports are the backbone of MSME lending decisions — yet production was broken.
+        Analysts worked from handwritten notes, memory, and <b>hour-long recordings they had to manually replay</b>.
+        Each report took <b>2–3 hours</b> to write, yet output quality was inconsistent: judgment varied analyst to analyst,
+        the role carried <b>high attrition</b> making training futile, and vetters had to repeatedly re-validate work.
+        Critical signals — business ground realities, income patterns, behavioural cues — never appeared in bank
+        statements or credit reports, and were routinely missed or inconsistently captured.
+      </p>
+    </div>
+
+    <!-- MY ROLE -->
+    <div class="section">
+      <div class="section-label">My Role as Founding PM</div>
+      <div class="role-grid">
+        <div class="role-card">
+          <b>UX Architecture</b>
+          Designed the LOS interview window from scratch — an organic, SOP-guided UI that minimised analyst cognitive load while ensuring full topic coverage across every interview.
+        </div>
+        <div class="role-card">
+          <b>Prompt Engineering</b>
+          Owned all 100+ prompts end-to-end — defining inferential and reasoning logic for each CAM section: borrower family, business, assets/liabilities, income streams, and future plans.
+        </div>
+        <div class="role-card">
+          <b>Eval Framework</b>
+          Built a ground-truth dataset with client champions; ran iterative qualitative evals on real transcripts, consulting clients async on a secure channel for ambiguous edge cases.
+        </div>
+        <div class="role-card">
+          <b>Client Collaboration</b>
+          Extracted credit domain knowledge from 5 NBFC/SFB clients and translated their SOPs into customized prompt logic — no two clients share the same configuration.
+        </div>
+      </div>
+    </div>
+
+    <!-- SOLUTION PIPELINE -->
+    <div class="section">
+      <div class="section-label">The Solution — End-to-End Pipeline</div>
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="step-title">Schedule</div>
+          <div class="step-sub">LOS-integrated interview booking</div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-title">Interview</div>
+          <div class="step-sub">SOP copilot UI guides analyst</div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-title">Transcript</div>
+          <div class="step-sub">Audio → text automatically</div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-title">AI Engine</div>
+          <div class="step-sub">100+ prompts process transcript</div>
+        </div>
+        <div class="pipeline-step outcome">
+          <div class="step-title">CAM Report</div>
+          <div class="step-sub">Full report in &lt;15 minutes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEASURABLE IMPACT -->
+    <div class="section">
+      <div class="section-label red">Measurable Impact</div>
+      <table class="impact-table">
+        <thead>
+          <tr>
+            <th>Before</th>
+            <th>After</th>
+            <th>Metric</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="before">2–3 hours</td>
+            <td class="after">&lt;15 minutes</td>
+            <td class="metric">Report turnaround per interview</td>
+          </tr>
+          <tr>
+            <td class="before">Manual, unreliable</td>
+            <td class="after">10,000+ / month</td>
+            <td class="metric">Reports generated at scale</td>
+          </tr>
+          <tr>
+            <td class="before">~40%</td>
+            <td class="after">100%</td>
+            <td class="metric">SOP compliance (voice agents)</td>
+          </tr>
+          <tr>
+            <td class="before">Analyst-variable</td>
+            <td class="after">Standardized + auditable</td>
+            <td class="metric">Output consistency</td>
+          </tr>
+          <tr>
+            <td class="before">4 clients</td>
+            <td class="after">5 clients (+ growing)</td>
+            <td class="metric">NBFC / SFB client base</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- BEYOND THE NUMBERS -->
+    <div class="section">
+      <div class="section-label red">Beyond the Numbers</div>
+      <p class="beyond-text">
+        The deeper win was <span class="highlight">standardization of intelligence</span>. The AI layer consistently
+        surfaced signals invisible to document-based underwriting — business ground realities, income patterns, and
+        behavioural cues from the interview. Clients reported reasoning that was
+        <span class="highlight">more consistent and auditable</span> than any analyst had ever produced.
+        With high analyst attrition making training a poor investment, this was a structural fix, not a productivity hack.
+        <span class="highlight">2 new NBFC clients (Finodaya Capital, Inprime Finance)</span> came onboard
+        in the months following launch.
+      </p>
+    </div>
+
+    <!-- PM APPROACH -->
+    <div class="section">
+      <div class="section-label">What This Shows About My PM Approach</div>
+      <div class="approach-grid">
+        <div class="approach-card">
+          <div class="dot"></div>
+          <div class="title">First-Principles Entry</div>
+          <div class="desc">Entered credit/lending with zero domain background — identified the right value unlocks by asking the right questions, not by waiting to become an expert.</div>
+        </div>
+        <div class="approach-card">
+          <div class="dot"></div>
+          <div class="title">Hands-On AI Ownership</div>
+          <div class="desc">Owned all prompt engineering and evals personally. Treated the AI layer as core product surface requiring PM-level rigour — not a black box to delegate.</div>
+        </div>
+        <div class="approach-card">
+          <div class="dot"></div>
+          <div class="title">Deterministic by Design</div>
+          <div class="desc">Optimised for reliability over impressiveness. Every prompt was tested on real transcripts; evals were co-built with clients to establish ground truth before production.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <span>hridyanshu.singhal@gmail.com &nbsp;·&nbsp; +91-7999739858 &nbsp;·&nbsp; Voxar.ai</span>
+      <span>Founding Product Manager &nbsp;·&nbsp; MSME Credit / Agentic B2B SaaS</span>
+    </div>
+
+  </div><!-- /body -->
+</div><!-- /page -->
+</body>
+</html>
