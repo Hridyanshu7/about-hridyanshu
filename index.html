@@ -175,6 +175,14 @@
     border: none;
     display: block;
   }
+
+  /* Voice AI Agents tab — scrollable iframe */
+  #tab-project3 iframe {
+    width: 100%;
+    flex: 1;
+    border: none;
+    display: block;
+  }
 </style>
 </head>
 <body>
@@ -206,6 +214,10 @@
       <button class="nav-item" data-tab="project2">
         <i class="ti ti-tags"></i>
         <span>Project: Data Labelling SaaS</span>
+      </button>
+      <button class="nav-item" data-tab="project3">
+        <i class="ti ti-phone-call"></i>
+        <span>Project: Voice AI Agents</span>
       </button>
     </div>
 
@@ -239,6 +251,14 @@
       <iframe
         src="project-2-v2.html"
         title="Data Labelling SaaS Case Study"
+      ></iframe>
+    </div>
+
+    <!-- TAB: VOICE AI AGENTS — loads project-3.html from same repo folder -->
+    <div class="tab-panel" id="tab-project3">
+      <iframe
+        src="project-3.html"
+        title="Voice AI Agents Case Study"
       ></iframe>
     </div>
 

@@ -347,7 +347,7 @@
   <div class="header">
     <div class="header-top">
       <div class="header-headline">
-        Credit Underwriting Was Slow, Unreliable &amp; Analyst-Dependent.
+        Thousands of Sales &amp; Collection Calls Were Scripted, Repetitive &amp; Re-Dialled by Hand — at 8x the Cost.
       </div>
       <div class="header-byline">
         <p>Hridyanshu Singhal</p>
@@ -355,17 +355,17 @@
         <p>AI PM Portfolio · 2026</p>
       </div>
     </div>
-    <p class="header-sub">We automated it end-to-end with AI — 10,000+ CAM reports/month across 5 clients, 2–3 hrs → under 15 minutes.</p>
+    <p class="header-sub">We built Voice AI Agents for Pre-Sales, Payment Reminder &amp; Collection calls — live across 3 major NBFC/SFB clients, cutting cost per call by ~8x with built-in re-dial logic.</p>
   </div>
 
   <!-- PILLS -->
   <div class="pills-row">
-    <span class="pill">10,000+ reports / month</span>
-    <span class="pill">2–3 hrs → &lt;15 min</span>
-    <span class="pill">5 NBFC / SFB clients</span>
-    <span class="pill">~40% → 100% SOP compliance</span>
-    <span class="pill">2 new clients post-launch</span>
-    <span class="pill">100+ prompts per report</span>
+    <span class="pill">1,000+ Pre-Sales calls / month</span>
+    <span class="pill">500–700 Payment Reminder calls / month</span>
+    <span class="pill">100+ Collection calls / month</span>
+    <span class="pill">~8x cheaper per call vs. human callers</span>
+    <span class="pill">Live across 3 major NBFC/SFB clients</span>
+    <span class="pill">New client rollout in &lt;1 day</span>
   </div>
 
   <!-- BODY -->
@@ -374,22 +374,22 @@
     <!-- THE PROBLEM -->
     <div class="section">
       <div class="section-label">The Problem</div>
-      <p class="problem-text">CAM (Credit Appraisal Memo) reports are the backbone of MSME lending decisions — yet production was broken:</p>
+      <p class="problem-text">Pre-Sales, Payment Reminder &amp; Collection calling was outsourced to human call-centres — and it was breaking under its own volume:</p>
       <div class="problem-grid">
         <div class="problem-card">
-          <i class="ti ti-clock-hour-4"></i>
-          <div class="stat">2–3 hrs per report</div>
-          <div class="desc">Analysts manually replayed hour-long recordings, working from handwritten notes &amp; memory.</div>
+          <i class="ti ti-repeat"></i>
+          <div class="stat">1,000s of repetitive calls</div>
+          <div class="desc">Every campaign followed the same script across hundreds-to-thousands of borrowers, with near-zero variation between calls.</div>
         </div>
         <div class="problem-card">
-          <i class="ti ti-user-x"></i>
-          <div class="stat">High analyst attrition</div>
-          <div class="desc">Judgment varied analyst to analyst, making training futile; vetters re-validated work repeatedly.</div>
+          <i class="ti ti-phone-x"></i>
+          <div class="stat">Most calls needed re-dials</div>
+          <div class="desc">Unpicked or inconclusive calls had to be re-dialled repeatedly until a clear borrower disposition was captured.</div>
         </div>
         <div class="problem-card">
-          <i class="ti ti-eye-off"></i>
-          <div class="stat">Critical signals missed</div>
-          <div class="desc">Ground realities, income patterns &amp; behavioural cues never appeared in bank statements or credit reports.</div>
+          <i class="ti ti-cash"></i>
+          <div class="stat">~8x cost via call-centres</div>
+          <div class="desc">NBFCs &amp; SFBs paid human-caller salaries to run this volume — a prohibitively expensive, purely mechanical task.</div>
         </div>
       </div>
     </div>
@@ -399,20 +399,20 @@
       <div class="section-label">My Role as AI-native IC PM</div>
       <div class="role-grid">
         <div class="role-card">
-          <div class="role-head"><i class="ti ti-layout"></i><b>UX Architecture</b></div>
-          Designed the LOS interview window from scratch — an organic, SOP-guided UI that minimised analyst cognitive load while ensuring full topic coverage across every interview.
+          <div class="role-head"><i class="ti ti-message-2"></i><b>Script &amp; Prompt Design</b></div>
+          Designed call scripts and engineered system prompts for each of the 3 agent types — Pre-Sales, Payment Reminder, Collections — balancing personalization with reliability at scale.
         </div>
         <div class="role-card">
-          <div class="role-head"><i class="ti ti-code"></i><b>Prompt Engineering</b></div>
-          Owned all 100+ prompts end-to-end — defining inferential and reasoning logic for each CAM section: borrower family, business, assets/liabilities, income streams, and future plans.
+          <div class="role-head"><i class="ti ti-microphone-2"></i><b>Voice Model Selection</b></div>
+          Evaluated and selected TTS models (Sarvam.ai, Smallest.ai) and Gemini 2.5 Flash for STT, based on voice-specific requirements distinct from text use-cases.
         </div>
         <div class="role-card">
-          <div class="role-head"><i class="ti ti-clipboard-check"></i><b>Eval Framework</b></div>
-          Built a ground-truth dataset with client champions; ran iterative qualitative evals on real transcripts, consulting clients async on a secure channel for ambiguous edge cases.
+          <div class="role-head"><i class="ti ti-refresh"></i><b>Re-Dial &amp; Disposition Logic</b></div>
+          Defined re-dial scheduling — up to 3 attempts at 2/4/8-hr gaps within TRAI-regulated windows — and the disposition rules that determine a "meaningful conclusion" per call.
         </div>
         <div class="role-card">
-          <div class="role-head"><i class="ti ti-users-group"></i><b>Client Collaboration</b></div>
-          Extracted credit domain knowledge from 5 NBFC/SFB clients and translated their SOPs into customized prompt logic — no two clients share the same configuration.
+          <div class="role-head"><i class="ti ti-table"></i><b>Campaigns Module</b></div>
+          Evolved the on-demand, 3-click scheduling feature into a campaigns module — bulk Excel upload and real-time CSV exports for 100s of borrowers per cycle.
         </div>
       </div>
     </div>
@@ -422,24 +422,24 @@
       <div class="section-label">The Solution — End-to-End Pipeline</div>
       <div class="pipeline">
         <div class="pipeline-step">
-          <div class="step-title">Schedule</div>
-          <div class="step-sub">LOS-integrated interview booking</div>
+          <div class="step-title">Upload</div>
+          <div class="step-sub">Client uploads borrower list (Excel) for a PR / PC / PS campaign</div>
         </div>
         <div class="pipeline-step">
-          <div class="step-title">Interview</div>
-          <div class="step-sub">SOP copilot UI guides analyst</div>
+          <div class="step-title">Dial</div>
+          <div class="step-sub">Telephony (Exotel/Twilio) connects via Sarvam / Smallest TTS</div>
         </div>
         <div class="pipeline-step">
-          <div class="step-title">Transcript</div>
-          <div class="step-sub">Audio → text automatically</div>
+          <div class="step-title">Converse</div>
+          <div class="step-sub">In-house prompts drive the script live; Gemini 2.5 Flash for STT</div>
         </div>
         <div class="pipeline-step">
-          <div class="step-title">AI Engine</div>
-          <div class="step-sub">100+ prompts process transcript</div>
+          <div class="step-title">Re-Dial</div>
+          <div class="step-sub">Up to 3x at 2/4/8 hrs within TRAI windows if inconclusive</div>
         </div>
         <div class="pipeline-step outcome">
-          <div class="step-title">CAM Report</div>
-          <div class="step-sub">Full report in &lt;15 minutes</div>
+          <div class="step-title">Disposition</div>
+          <div class="step-sub">Promise-to-pay / partial / refusal → real-time CSV export</div>
         </div>
       </div>
     </div>
@@ -457,29 +457,29 @@
         </thead>
         <tbody>
           <tr>
-            <td class="before">2–3 hours</td>
-            <td class="after">&lt;15 minutes</td>
-            <td class="metric">Report turnaround per interview</td>
+            <td class="before">Human call-centre agents</td>
+            <td class="after">~8x cheaper per call</td>
+            <td class="metric">Cost per call (AI vs. human)</td>
           </tr>
           <tr>
-            <td class="before">Manual, unreliable</td>
-            <td class="after">10,000+ / month</td>
-            <td class="metric">Reports generated at scale</td>
-          </tr>
-          <tr>
-            <td class="before">~40%</td>
-            <td class="after">100%</td>
-            <td class="metric">SOP compliance (voice agents)</td>
-          </tr>
-          <tr>
-            <td class="before">Analyst-variable</td>
-            <td class="after">Standardized + auditable</td>
-            <td class="metric">Output consistency</td>
+            <td class="before">Manual re-dials, no SLA</td>
+            <td class="after">Auto: 3x @ 2/4/8 hrs, TRAI-compliant</td>
+            <td class="metric">Re-dial &amp; disposition logic</td>
           </tr>
           <tr>
             <td class="before"></td>
-            <td class="after">5 clients (+ growing)</td>
-            <td class="metric">NBFC / SFB client base</td>
+            <td class="after">1,000+ / 500–700 / 100+ per month</td>
+            <td class="metric">Monthly calls — Pre-Sales / Reminder / Collections</td>
+          </tr>
+          <tr>
+            <td class="before"></td>
+            <td class="after">2–5 days @ 3-call concurrency</td>
+            <td class="metric">Campaign TAT (incl. re-scheduled calls)</td>
+          </tr>
+          <tr>
+            <td class="before"></td>
+            <td class="after">3 major NBFC/SFB clients, live</td>
+            <td class="metric">Adoption — rollout in &lt;1 day per client</td>
           </tr>
         </tbody>
       </table>
@@ -490,19 +490,19 @@
       <div class="section-label red">Beyond the Numbers</div>
       <div class="outcome-grid">
         <div class="outcome-card">
-          <i class="ti ti-sparkles"></i>
-          <div class="stat">Standardized intelligence</div>
-          <div class="desc">AI surfaced signals invisible to document-based underwriting — ground realities, income patterns &amp; behavioural cues.</div>
+          <i class="ti ti-adjustments"></i>
+          <div class="stat">Prompt engineering &gt; model choice</div>
+          <div class="desc">Model selection alone doesn't deliver — prompts engineered for personalization at scale are what make the voice-agent experience work.</div>
         </div>
         <div class="outcome-card">
-          <i class="ti ti-shield-check"></i>
-          <div class="stat">More consistent &amp; auditable</div>
-          <div class="desc">Clients reported reasoning more reliable than any analyst had ever produced — a structural fix, not a productivity hack.</div>
+          <i class="ti ti-route"></i>
+          <div class="stat">Beyond CAM, into the credit picture</div>
+          <div class="desc">Voice AI flows sit outside the CAM pipeline but feed directly into the creditworthiness analysis of the same application.</div>
         </div>
         <div class="outcome-card">
-          <i class="ti ti-building-bank"></i>
-          <div class="stat">+2 new NBFC clients</div>
-          <div class="desc">Two new NBFC/SFB clients onboarded in the months following launch.</div>
+          <i class="ti ti-alert-triangle"></i>
+          <div class="stat">Vernacular validation still open</div>
+          <div class="desc">LLM hallucination in vernacular speech remains frequent, with no reliable way to validate it at human-level yet.</div>
         </div>
       </div>
     </div>
@@ -513,18 +513,18 @@
       <div class="approach-grid">
         <div class="approach-card">
           <i class="ti ti-bulb"></i>
-          <div class="title">First-Principles Entry</div>
-          <div class="desc">Entered credit/lending with zero domain background — identified the right value unlocks by asking the right questions, not by waiting to become an expert.</div>
+          <div class="title">First-Principles Prompt Engineering</div>
+          <div class="desc">Iteratively engineered generalizable AI scripts to eliminate human intervention entirely — hands-on at every step, including testing and evals.</div>
         </div>
         <div class="approach-card">
-          <i class="ti ti-cpu"></i>
-          <div class="title">Hands-On AI Ownership</div>
-          <div class="desc">Owned all prompt engineering and evals personally. Treated the AI layer as core product surface requiring PM-level rigour — not a black box to delegate.</div>
+          <i class="ti ti-microphone-2"></i>
+          <div class="title">Voice-Specific Model Selection</div>
+          <div class="desc">Deep understanding of what each TTS model is capable of vs. others, and why voice and text use-cases demand different selection criteria.</div>
         </div>
         <div class="approach-card">
-          <i class="ti ti-target"></i>
-          <div class="title">Deterministic by Design</div>
-          <div class="desc">Optimised for reliability over impressiveness. Every prompt was tested on real transcripts; evals were co-built with clients to establish ground truth before production.</div>
+          <i class="ti ti-stack-2"></i>
+          <div class="title">Build → Feature → Platform</div>
+          <div class="desc">Evolved a single on-demand workflow into a full campaigns module — recognizing when ad-hoc usage signals the need for scaled infrastructure.</div>
         </div>
       </div>
     </div>
