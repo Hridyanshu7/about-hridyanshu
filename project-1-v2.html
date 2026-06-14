@@ -74,26 +74,6 @@
     font-weight: 500;
   }
 
-  /* ── PILLS ROW ── */
-  .pills-row {
-    padding: 14px 32px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    border-bottom: 1px solid var(--rule);
-    background: var(--white);
-  }
-  .pill {
-    background: var(--red-lt);
-    border: 1px solid var(--red);
-    color: var(--red);
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 20px;
-    white-space: nowrap;
-  }
-
   /* ── BODY ── */
   .body {
     padding: 0 32px 32px;
@@ -190,8 +170,8 @@
   /* ── PIPELINE ── */
   .pipeline {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
+    grid-template-columns: 1fr 16px 1fr 16px 1fr 16px 1fr 16px 1fr;
+    gap: 4px;
     align-items: stretch;
   }
   .pipeline-step {
@@ -262,6 +242,34 @@
     color: var(--ink);
     font-size: 12px;
   }
+
+  /* ── IMPACT VISUAL BARS ── */
+  .bar-track {
+    width: 72px;
+    height: 5px;
+    margin-top: 5px;
+    background: var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+  }
+  .bar-fill.before { background: var(--mid); }
+  .bar-fill.after  { background: var(--red); }
+
+  /* ── CLIENT GROWTH ICONS ── */
+  .client-icons {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+  }
+  .client-icons i {
+    font-size: 14px;
+  }
+  .client-icons i.existing { color: var(--blue); }
+  .client-icons i.new      { color: var(--red); }
 
   /* ── BEYOND NUMBERS ── */
   .outcome-grid {
@@ -358,16 +366,6 @@
     <p class="header-sub">We automated it end-to-end with AI — 10,000+ CAM reports/month across 5 clients, 2–3 hrs → under 15 minutes.</p>
   </div>
 
-  <!-- PILLS -->
-  <div class="pills-row">
-    <span class="pill">10,000+ reports / month</span>
-    <span class="pill">2–3 hrs → &lt;15 min</span>
-    <span class="pill">5 NBFC / SFB clients</span>
-    <span class="pill">~40% → 100% SOP compliance</span>
-    <span class="pill">2 new clients post-launch</span>
-    <span class="pill">100+ prompts per report</span>
-  </div>
-
   <!-- BODY -->
   <div class="body">
 
@@ -379,40 +377,17 @@
         <div class="problem-card">
           <i class="ti ti-clock-hour-4"></i>
           <div class="stat">2–3 hrs per report</div>
-          <div class="desc">Analysts manually replayed hour-long recordings, working from handwritten notes &amp; memory.</div>
+          <div class="desc">Analysts manually replayed <b>hour-long recordings</b>, working from <b>handwritten notes &amp; memory</b>.</div>
         </div>
         <div class="problem-card">
           <i class="ti ti-user-x"></i>
           <div class="stat">High analyst attrition</div>
-          <div class="desc">Judgment varied analyst to analyst, making training futile; vetters re-validated work repeatedly.</div>
+          <div class="desc">Judgment varied analyst to analyst, making training futile; vetters <b>re-validated work repeatedly</b>.</div>
         </div>
         <div class="problem-card">
           <i class="ti ti-eye-off"></i>
           <div class="stat">Critical signals missed</div>
-          <div class="desc">Ground realities, income patterns &amp; behavioural cues never appeared in bank statements or credit reports.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MY ROLE -->
-    <div class="section">
-      <div class="section-label">My Role as AI-native IC PM</div>
-      <div class="role-grid">
-        <div class="role-card">
-          <div class="role-head"><i class="ti ti-layout"></i><b>UX Architecture</b></div>
-          Designed the LOS interview window from scratch — an organic, SOP-guided UI that minimised analyst cognitive load while ensuring full topic coverage across every interview.
-        </div>
-        <div class="role-card">
-          <div class="role-head"><i class="ti ti-code"></i><b>Prompt Engineering</b></div>
-          Owned all 100+ prompts end-to-end — defining inferential and reasoning logic for each CAM section: borrower family, business, assets/liabilities, income streams, and future plans.
-        </div>
-        <div class="role-card">
-          <div class="role-head"><i class="ti ti-clipboard-check"></i><b>Eval Framework</b></div>
-          Built a ground-truth dataset with client champions; ran iterative qualitative evals on real transcripts, consulting clients async on a secure channel for ambiguous edge cases.
-        </div>
-        <div class="role-card">
-          <div class="role-head"><i class="ti ti-users-group"></i><b>Client Collaboration</b></div>
-          Extracted credit domain knowledge from 5 NBFC/SFB clients and translated their SOPs into customized prompt logic — no two clients share the same configuration.
+          <div class="desc"><b>Ground realities, income patterns &amp; behavioural cues</b> never appeared in bank statements or credit reports.</div>
         </div>
       </div>
     </div>
@@ -425,18 +400,22 @@
           <div class="step-title">Schedule</div>
           <div class="step-sub">LOS-integrated interview booking</div>
         </div>
+        <div class="pipeline-arrow"><i class="ti ti-chevron-right"></i></div>
         <div class="pipeline-step">
           <div class="step-title">Interview</div>
           <div class="step-sub">SOP copilot UI guides analyst</div>
         </div>
+        <div class="pipeline-arrow"><i class="ti ti-chevron-right"></i></div>
         <div class="pipeline-step">
           <div class="step-title">Transcript</div>
           <div class="step-sub">Audio → text automatically</div>
         </div>
+        <div class="pipeline-arrow"><i class="ti ti-chevron-right"></i></div>
         <div class="pipeline-step">
           <div class="step-title">AI Engine</div>
           <div class="step-sub">100+ prompts process transcript</div>
         </div>
+        <div class="pipeline-arrow"><i class="ti ti-chevron-right"></i></div>
         <div class="pipeline-step outcome">
           <div class="step-title">CAM Report</div>
           <div class="step-sub">Full report in &lt;15 minutes</div>
@@ -457,9 +436,15 @@
         </thead>
         <tbody>
           <tr>
-            <td class="before">2–3 hours</td>
-            <td class="after">&lt;15 minutes</td>
-            <td class="metric">Report turnaround per interview</td>
+            <td class="before">
+              2–3 hours
+              <div class="bar-track"><div class="bar-fill before" style="width: 100%;"></div></div>
+            </td>
+            <td class="after">
+              &lt;15 minutes
+              <div class="bar-track"><div class="bar-fill after" style="width: 10%;"></div></div>
+            </td>
+            <td class="metric">Report TAT per interview</td>
           </tr>
           <tr>
             <td class="before">Manual, unreliable</td>
@@ -467,8 +452,14 @@
             <td class="metric">Reports generated at scale</td>
           </tr>
           <tr>
-            <td class="before">~40%</td>
-            <td class="after">100%</td>
+            <td class="before">
+              ~40%
+              <div class="bar-track"><div class="bar-fill before" style="width: 40%;"></div></div>
+            </td>
+            <td class="after">
+              100%
+              <div class="bar-track"><div class="bar-fill after" style="width: 100%;"></div></div>
+            </td>
             <td class="metric">SOP compliance (voice agents)</td>
           </tr>
           <tr>
@@ -478,7 +469,16 @@
           </tr>
           <tr>
             <td class="before"></td>
-            <td class="after">5 clients (+ growing)</td>
+            <td class="after">
+              5 clients (+ growing)
+              <div class="client-icons">
+                <i class="ti ti-building-bank existing"></i>
+                <i class="ti ti-building-bank existing"></i>
+                <i class="ti ti-building-bank existing"></i>
+                <i class="ti ti-building-bank new"></i>
+                <i class="ti ti-building-bank new"></i>
+              </div>
+            </td>
             <td class="metric">NBFC / SFB client base</td>
           </tr>
         </tbody>
@@ -492,17 +492,40 @@
         <div class="outcome-card">
           <i class="ti ti-sparkles"></i>
           <div class="stat">Standardized intelligence</div>
-          <div class="desc">AI surfaced signals invisible to document-based underwriting — ground realities, income patterns &amp; behavioural cues.</div>
+          <div class="desc">AI surfaced signals invisible to document-based underwriting — <b>ground realities, income patterns &amp; behavioural cues</b>.</div>
         </div>
         <div class="outcome-card">
           <i class="ti ti-shield-check"></i>
           <div class="stat">More consistent &amp; auditable</div>
-          <div class="desc">Clients reported reasoning more reliable than any analyst had ever produced — a structural fix, not a productivity hack.</div>
+          <div class="desc">Clients reported reasoning <b>more reliable than any analyst had ever produced</b> — a structural fix, not a productivity hack.</div>
         </div>
         <div class="outcome-card">
           <i class="ti ti-building-bank"></i>
           <div class="stat">+2 new NBFC clients</div>
-          <div class="desc">Two new NBFC/SFB clients onboarded in the months following launch.</div>
+          <div class="desc"><b>Two new NBFC/SFB clients</b> onboarded in the months following launch.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MY ROLE -->
+    <div class="section">
+      <div class="section-label">My Role as AI-native IC PM</div>
+      <div class="role-grid">
+        <div class="role-card">
+          <div class="role-head"><i class="ti ti-layout"></i><b>UX Architecture</b></div>
+          Designed the <b>LOS interview window</b> from scratch — an organic, <b>SOP-guided UI</b> that minimised analyst cognitive load while ensuring full topic coverage across every interview.
+        </div>
+        <div class="role-card">
+          <div class="role-head"><i class="ti ti-code"></i><b>Prompt Engineering</b></div>
+          Owned all <b>100+ prompts</b> end-to-end — defining inferential and reasoning logic for each CAM section: <b>borrower family, business, assets/liabilities, income streams, and future plans</b>.
+        </div>
+        <div class="role-card">
+          <div class="role-head"><i class="ti ti-clipboard-check"></i><b>Eval Framework</b></div>
+          Built a <b>ground-truth dataset</b> with client champions; ran iterative qualitative evals on real transcripts, consulting clients async on a secure channel for <b>ambiguous edge cases</b>.
+        </div>
+        <div class="role-card">
+          <div class="role-head"><i class="ti ti-users-group"></i><b>Client Collaboration</b></div>
+          Extracted credit domain knowledge from <b>5 NBFC/SFB clients</b> and translated their SOPs into customized prompt logic — <b>no two clients share the same configuration</b>.
         </div>
       </div>
     </div>
@@ -514,17 +537,17 @@
         <div class="approach-card">
           <i class="ti ti-bulb"></i>
           <div class="title">First-Principles Entry</div>
-          <div class="desc">Entered credit/lending with zero domain background — identified the right value unlocks by asking the right questions, not by waiting to become an expert.</div>
+          <div class="desc">Entered credit/lending with <b>zero domain background</b> — identified the right value unlocks by asking the right questions, not by waiting to become an expert.</div>
         </div>
         <div class="approach-card">
           <i class="ti ti-cpu"></i>
           <div class="title">Hands-On AI Ownership</div>
-          <div class="desc">Owned all prompt engineering and evals personally. Treated the AI layer as core product surface requiring PM-level rigour — not a black box to delegate.</div>
+          <div class="desc">Owned all prompt engineering and evals personally. Treated the AI layer as <b>core product surface</b> requiring PM-level rigour — not a black box to delegate.</div>
         </div>
         <div class="approach-card">
           <i class="ti ti-target"></i>
           <div class="title">Deterministic by Design</div>
-          <div class="desc">Optimised for reliability over impressiveness. Every prompt was tested on real transcripts; evals were co-built with clients to establish ground truth before production.</div>
+          <div class="desc">Optimised for <b>reliability over impressiveness</b>. Every prompt was tested on real transcripts; evals were co-built with clients to establish <b>ground truth</b> before production.</div>
         </div>
       </div>
     </div>
